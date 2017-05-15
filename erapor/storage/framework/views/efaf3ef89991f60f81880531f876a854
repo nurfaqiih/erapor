@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta id="token" name="token" value="<?php echo e(csrf_token()); ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href=<?php echo e(asset('images/favicon.ico')); ?>>
+    <title>Erapor</title>
+
+    <!-- Styles -->
+    <?php echo Html::style(elixir('css/app.css')); ?>
+
+    <?php echo Html::style(elixir('css/e-rapor.css')); ?>
+
+    <?php echo Html::style('//fonts.googleapis.com/css?family=Roboto:400,300'); ?>
+
+
+</head>
+<body id="body" style="padding-top: 40px">
+
+<?php echo $__env->make('partials.navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<?php echo $__env->yieldContent('content'); ?>
+
+<!-- Scripts -->
+
+<?php echo Html::script(asset('js/vue.min.js')); ?>
+
+<?php echo Html::script(asset('js/vue-resource.min.js')); ?>
+
+<?php echo Html::script(asset('js/vue-validator.js')); ?>
+
+<?php echo Html::script(elixir('js/app.js')); ?>
+
+<?php echo Html::script(asset('js/jquery.slimscroll.min.js')); ?>
+
+
+<script type="text/javascript">
+    $('div.alert').not('.important').delay(1000).fadeIn(300).delay(5000).fadeOut(300);
+    $('div.flash').delay(1000).fadeIn(300).delay(5000).fadeOut(300);
+</script>
+
+<?php echo $__env->yieldContent('footer'); ?>
+
+<?php echo $__env->yieldContent('script'); ?>
+</body>
+</html>

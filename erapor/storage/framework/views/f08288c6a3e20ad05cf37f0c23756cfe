@@ -1,0 +1,77 @@
+<?php $__env->startSection('content'); ?>
+    <div class="page-title">
+        <div class="page-breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="<?php echo e(route('admin.index')); ?>">Home</a></li>
+                <li><a href="<?php echo e(route('admin.dashboard')); ?>">Dashboard</a></li>
+                <li><a href="<?php echo e(route('admin.user')); ?>">User</a></li>
+                <li class="active"><?php echo e($user->id); ?></li>
+            </ol>
+        </div>
+        <?php echo $__env->make('partials.navbar.date', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    </div>
+    <div id="admin-show" class="container-fluid" style="margin: 20px">
+        <?php echo $__env->make('flash::message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <div class="col-md-2">
+            <ul class="list-unstyled mailbox-nav">
+                <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+                <li><a href="<?php echo e(route('admin.dashboard')); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                <li><a href="<?php echo e(route('admin.user')); ?>"><i class="fa fa-database"></i> Master Data User</a> </li>
+                <li><a href="<?php echo e(route('admin.edit', ['id' => $user->id])); ?>"><i class="fa fa-pencil"></i> Edit</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-10">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="<?php echo e($user->thumbnail); ?>" class="img-rounded img-responsive" height="250" width="250">
+                            <br>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>Username</label><br>     
+                                    <label>Nama</label><br>   
+                                    <?php /* <label>Gender</label><br> */ ?>
+                                </div>
+                                <div class="col-md-8">
+                                    <label>: <?php echo e($user->username); ?> </label><br>
+                                    <label>: <?php echo e($user->name); ?></label><br>
+                                    <?php /* <label>: <?php echo e($user->teacher->gender); ?></label> */ ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="alert alert-info important">
+                                <h2>User Bio:</h2>
+                                <h4>Boostrap User Profile</h4>    
+                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <i class="fa fa-user"> </i><label> Status</label><br>
+                                    <i class="fa fa-envelope"> </i><label> Email Address</label><br>
+                                    <?php /* <i class="fa fa-calendar"></i><label> Tanggal Lahir</label><br> */ ?>
+                                    <?php /* <i class="fa fa-map-marker"></i><label> Tempat Lahir</label><br> */ ?>
+                                </div>
+                                <div class="col-md-8">
+                                    <label>: <?php echo e($user->role); ?></label><br>
+                                    <label>: <?php echo e($user->email); ?></label><br>
+                                    <?php /* <label>: <?php echo e($user->teacher->birth); ?></label><br> */ ?>
+                                    <?php /* <label>: <?php echo e($user->teacher->birth_place); ?></label><br> */ ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+    <?php echo Html::script(asset('js/admin-show.js')); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

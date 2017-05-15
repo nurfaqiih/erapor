@@ -1,0 +1,54 @@
+<?php $__env->startSection('content'); ?>
+    <div class="page-title">
+        <?php echo $__env->make('partials.navbar.date', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    </div>
+    <div class="container-fluid" style="margin-top: 20px">
+        <div class="col-md-2" style="">
+            <ul class="list-unstyled mailbox-nav">
+                <?php echo $__env->make('user.admin.layout.menu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            </ul>
+            <img src="/images/sma7.gif" class="img-responsive hidden-sm hidden-xs" alt="Responsive image">
+        </div>
+        <div class="col-md-10">
+            <div class="jumbotron">
+                <h1>Hello, Admin!</h1>
+                <p>Welcome back</p>
+            </div>            
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('footer'); ?>
+    <div id="rapor" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">Reset Database</h4>
+                </div>
+                <div class="modal-body text-center">
+                    <?php /*<?php echo Form::open(['route' => 'delete.database']); ?>*/ ?>
+                    Are You Sure to Delete this all record??
+                    <?php echo Recaptcha::render(); ?>
+
+                </div>
+                <div class="modal-footer">
+                    <?php echo Form::submit('Delete', ['class' => 'btn btn-danger']); ?>
+
+                    <?php echo Form::close(); ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        jQuery(document).ready(function($) {
+            $('.counter').counterUp({
+                delay: 10,
+                time: 3000
+            });
+        });
+        $('div.jumbotron').delay(2000).fadeIn(300);
+    </script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

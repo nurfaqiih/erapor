@@ -1,0 +1,53 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Erapor</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <?php if ( ! (Auth::guest())): ?>
+                    <li><a href="<?php echo e(url('/')); ?>"><span class="fa fa-home"></span> Home</a></li>
+                <?php endif; ?>
+
+                <?php if(Auth::check()): ?>
+                    <?php echo $__env->make('partials.navbar.'.\Auth::user()->role, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                <?php endif; ?>
+
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <?php if(Auth::guest()): ?>
+                    <li><a href="<?php echo e(url('/auth/login')); ?>">Login</a></li>
+                <?php else: ?>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false">
+                                <?php echo e(Auth::user()->name); ?>
+
+                                <?php echo Html::image(Auth::user()->thumbnail, null, ['height' =>23, 'width' => 23, 'class' => 'img-circle']); ?>
+
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="<?php echo e(route('account.profiles', Auth::user()->id)); ?>"><span class="fa fa-user"></span> Profile</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo e(route('account.setting', Auth::user()->id)); ?>"><span class="fa fa-wrench"></span> Change Password</a>
+                            </li>
+                            <li role="presentation" class="divider"></li>
+                            <li><a href="<?php echo e(url('/auth/logout')); ?>"><span class="fa fa-sign-out"></span> Logout</a></li>
+                        </ul>
+                    </li>
+                <?php endif; ?>
+            </ul>
+        </div>
+    </div>
+</nav>

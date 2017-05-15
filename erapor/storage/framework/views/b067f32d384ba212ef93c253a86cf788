@@ -1,0 +1,37 @@
+<?php $__env->startSection('content'); ?>
+    <div class="page-title">
+        <!-- <h3>Dashboard</h3> -->
+        <div class="page-breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="<?php echo e(route('teacher.index')); ?>">Home</a></li>
+                <li class="active">Teacher</li>
+            </ol>
+            <?php echo $__env->make('partials.navbar.date', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        </div>
+    </div>
+    <div class="container-fluid" style="margin: 20px">
+        <?php echo $__env->make('partials.teacher-side-menu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+        <div class="col-md-10">
+            <div class="jumbotron">
+                <div class="container">
+                    <h1>Selamat Datang, <?php echo e(Auth::user()->name); ?></h1>
+                    <h3>Manfaatkan Aplikasi E-Rapor SMA Kurikulum 2013 ini dengan sebaik-baiknya. Jaga kerahasian username, email, dan password anda !!!</h3>
+                </div>
+            </div>
+            <h1>Informasi Akademik</h1>
+            <table class="table">
+                <tr>
+                    <td>Batas Akhir Entry Nilai</td>
+                    <td>: <?php echo e(Config::get('kalender.expire')); ?></td>
+                </tr>
+                <tr>
+                    <td>Akses Rapor</td>
+                    <td>: <?php echo e(Config::get('kalender.open')); ?></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

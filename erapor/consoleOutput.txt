@@ -1,0 +1,119 @@
+
+> D:\xampp\php\php.exe artisan route:list
++--------+--------------------------------+-------------------------------------------------------+----------------------+------------------------------------------------------------+--------------------+
+| Domain | Method                         | URI                                                   | Name                 | Action                                                     | Middleware         |
++--------+--------------------------------+-------------------------------------------------------+----------------------+------------------------------------------------------------+--------------------+
+|        | GET|HEAD                       | /                                                     |                      | App\Http\Controllers\WelcomeController@index               | guest              |
+|        | GET|HEAD                       | api/section                                           |                      | App\Http\Controllers\ApiController@section                 |                    |
+|        | GET|HEAD                       | api/rombel                                            |                      | App\Http\Controllers\ApiController@rombel                  |                    |
+|        | GET|HEAD                       | api/user/teacher                                      |                      | App\Http\Controllers\ApiController@teacher                 |                    |
+|        | PUT                            | validation/{validation}                               | validation.update    | App\Http\Controllers\GlobalController@update               | auth,valid,auth    |
+|        | PATCH                          | validation/{validation}                               |                      | App\Http\Controllers\GlobalController@update               | auth,valid,auth    |
+|        | GET|HEAD                       | account/validation                                    | validation           | App\Http\Controllers\GlobalController@validation           | auth,valid,auth    |
+|        | GET|HEAD                       | account/profiles/{id}                                 | account.profiles     | App\Http\Controllers\GlobalController@profiles             | auth,email,auth    |
+|        | GET|HEAD                       | account/profiles/{id}/edit                            | profiles.edit        | App\Http\Controllers\GlobalController@profilesEdit         | auth,email,auth    |
+|        | PATCH                          | account/profiles/{id}                                 | profiles.update      | App\Http\Controllers\GlobalController@profilesUpdate       | auth,email,auth    |
+|        | GET|HEAD                       | account/setting/{id}                                  | account.setting      | App\Http\Controllers\GlobalController@settings             | auth,email,auth    |
+|        | POST                           | account/setting/{id}                                  | setting.update       | App\Http\Controllers\GlobalController@settingsUpdate       | auth,email,auth    |
+|        | GET|HEAD                       | access-forbidden                                      | forbidden            | Closure                                                    |                    |
+|        | GET|HEAD                       | auth/login/{one?}/{two?}/{three?}/{four?}/{five?}     |                      | App\Http\Controllers\Auth\AuthController@getLogin          | guest              |
+|        | POST                           | auth/login/{one?}/{two?}/{three?}/{four?}/{five?}     |                      | App\Http\Controllers\Auth\AuthController@postLogin         | guest              |
+|        | GET|HEAD                       | auth/logout/{one?}/{two?}/{three?}/{four?}/{five?}    |                      | App\Http\Controllers\Auth\AuthController@getLogout         |                    |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | auth/{_missing}                                       |                      | App\Http\Controllers\Auth\AuthController@missingMethod     | guest              |
+|        | GET|HEAD                       | password/email/{one?}/{two?}/{three?}/{four?}/{five?} |                      | App\Http\Controllers\Auth\PasswordController@getEmail      | guest              |
+|        | POST                           | password/email/{one?}/{two?}/{three?}/{four?}/{five?} |                      | App\Http\Controllers\Auth\PasswordController@postEmail     | guest              |
+|        | GET|HEAD                       | password/reset/{one?}/{two?}/{three?}/{four?}/{five?} |                      | App\Http\Controllers\Auth\PasswordController@getReset      | guest              |
+|        | POST                           | password/reset/{one?}/{two?}/{three?}/{four?}/{five?} |                      | App\Http\Controllers\Auth\PasswordController@postReset     | guest              |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | password/{_missing}                                   |                      | App\Http\Controllers\Auth\PasswordController@missingMethod | guest              |
+|        | GET|HEAD                       | admin                                                 | admin.index          | App\Http\Controllers\AdminController@index                 | auth,email,admin   |
+|        | GET|HEAD                       | admin/create                                          | admin.create         | App\Http\Controllers\AdminController@create                | auth,email,admin   |
+|        | POST                           | admin                                                 | admin.store          | App\Http\Controllers\AdminController@store                 | auth,email,admin   |
+|        | GET|HEAD                       | admin/{admin}                                         | admin.show           | App\Http\Controllers\AdminController@show                  | auth,email,admin   |
+|        | GET|HEAD                       | admin/{admin}/edit                                    | admin.edit           | App\Http\Controllers\AdminController@edit                  | auth,email,admin   |
+|        | PUT                            | admin/{admin}                                         | admin.update         | App\Http\Controllers\AdminController@update                | auth,email,admin   |
+|        | PATCH                          | admin/{admin}                                         |                      | App\Http\Controllers\AdminController@update                | auth,email,admin   |
+|        | DELETE                         | admin/{admin}                                         | admin.destroy        | App\Http\Controllers\AdminController@destroy               | auth,email,admin   |
+|        | GET|HEAD                       | master/user                                           | admin.user           | App\Http\Controllers\AdminController@user                  | auth,email,admin   |
+|        | GET|HEAD                       | dashboard/admin                                       | admin.dashboard      | App\Http\Controllers\AdminController@dashboard             | auth,email,admin   |
+|        | GET|HEAD                       | operator                                              | operator.index       | App\Http\Controllers\OperatorController@index              | auth,email,op      |
+|        | GET|HEAD                       | operator/create                                       | operator.create      | App\Http\Controllers\OperatorController@create             | auth,email,op      |
+|        | POST                           | operator                                              | operator.store       | App\Http\Controllers\OperatorController@store              | auth,email,op      |
+|        | GET|HEAD                       | operator/{operator}                                   | operator.show        | App\Http\Controllers\OperatorController@show               | auth,email,op      |
+|        | GET|HEAD                       | operator/{operator}/edit                              | operator.edit        | App\Http\Controllers\OperatorController@edit               | auth,email,op      |
+|        | PUT                            | operator/{operator}                                   | operator.update      | App\Http\Controllers\OperatorController@update             | auth,email,op      |
+|        | PATCH                          | operator/{operator}                                   |                      | App\Http\Controllers\OperatorController@update             | auth,email,op      |
+|        | DELETE                         | operator/{operator}                                   | operator.destroy     | App\Http\Controllers\OperatorController@destroy            | auth,email,op      |
+|        | GET|HEAD                       | section                                               | section.index        | App\Http\Controllers\SectionController@index               | auth,email,op      |
+|        | GET|HEAD                       | section/create                                        | section.create       | App\Http\Controllers\SectionController@create              | auth,email,op      |
+|        | POST                           | section                                               | section.store        | App\Http\Controllers\SectionController@store               | auth,email,op      |
+|        | GET|HEAD                       | section/{section}                                     | section.show         | App\Http\Controllers\SectionController@show                | auth,email,op      |
+|        | GET|HEAD                       | section/{section}/edit                                | section.edit         | App\Http\Controllers\SectionController@edit                | auth,email,op      |
+|        | PUT                            | section/{section}                                     | section.update       | App\Http\Controllers\SectionController@update              | auth,email,op      |
+|        | PATCH                          | section/{section}                                     |                      | App\Http\Controllers\SectionController@update              | auth,email,op      |
+|        | DELETE                         | section/{section}                                     | section.destroy      | App\Http\Controllers\SectionController@destroy             | auth,email,op      |
+|        | GET|HEAD                       | kelas                                                 | kelas.index          | App\Http\Controllers\KelasController@index                 | auth,email,op      |
+|        | GET|HEAD                       | kelas/create                                          | kelas.create         | App\Http\Controllers\KelasController@create                | auth,email,op      |
+|        | POST                           | kelas                                                 | kelas.store          | App\Http\Controllers\KelasController@store                 | auth,email,op      |
+|        | GET|HEAD                       | kelas/{kelas}                                         | kelas.show           | App\Http\Controllers\KelasController@show                  | auth,email,op      |
+|        | GET|HEAD                       | kelas/{kelas}/edit                                    | kelas.edit           | App\Http\Controllers\KelasController@edit                  | auth,email,op      |
+|        | PUT                            | kelas/{kelas}                                         | kelas.update         | App\Http\Controllers\KelasController@update                | auth,email,op      |
+|        | PATCH                          | kelas/{kelas}                                         |                      | App\Http\Controllers\KelasController@update                | auth,email,op      |
+|        | DELETE                         | kelas/{kelas}                                         | kelas.destroy        | App\Http\Controllers\KelasController@destroy               | auth,email,op      |
+|        | GET|HEAD                       | kelas/tingkat/{tingkat}                               | kelas.tingkat        | App\Http\Controllers\KelasController@tingkat               | auth,email,op      |
+|        | GET|HEAD                       | students                                              | students.index       | App\Http\Controllers\StudentsController@index              | auth,email,op      |
+|        | GET|HEAD                       | students/create                                       | students.create      | App\Http\Controllers\StudentsController@create             | auth,email,op      |
+|        | POST                           | students                                              | students.store       | App\Http\Controllers\StudentsController@store              | auth,email,op      |
+|        | GET|HEAD                       | students/{students}                                   | students.show        | App\Http\Controllers\StudentsController@show               | auth,email,op      |
+|        | GET|HEAD                       | students/{students}/edit                              | students.edit        | App\Http\Controllers\StudentsController@edit               | auth,email,op      |
+|        | PUT                            | students/{students}                                   | students.update      | App\Http\Controllers\StudentsController@update             | auth,email,op      |
+|        | PATCH                          | students/{students}                                   |                      | App\Http\Controllers\StudentsController@update             | auth,email,op      |
+|        | DELETE                         | students/{students}                                   | students.destroy     | App\Http\Controllers\StudentsController@destroy            | auth,email,op      |
+|        | GET|HEAD                       | teachers                                              | teachers.index       | App\Http\Controllers\TeachersController@index              | auth,email,op      |
+|        | GET|HEAD                       | teachers/create                                       | teachers.create      | App\Http\Controllers\TeachersController@create             | auth,email,op      |
+|        | POST                           | teachers                                              | teachers.store       | App\Http\Controllers\TeachersController@store              | auth,email,op      |
+|        | GET|HEAD                       | teachers/{teachers}                                   | teachers.show        | App\Http\Controllers\TeachersController@show               | auth,email,op      |
+|        | GET|HEAD                       | teachers/{teachers}/edit                              | teachers.edit        | App\Http\Controllers\TeachersController@edit               | auth,email,op      |
+|        | PUT                            | teachers/{teachers}                                   | teachers.update      | App\Http\Controllers\TeachersController@update             | auth,email,op      |
+|        | PATCH                          | teachers/{teachers}                                   |                      | App\Http\Controllers\TeachersController@update             | auth,email,op      |
+|        | DELETE                         | teachers/{teachers}                                   | teachers.destroy     | App\Http\Controllers\TeachersController@destroy            | auth,email,op      |
+|        | GET|HEAD                       | course                                                | course.index         | App\Http\Controllers\CoursesController@index               | auth,email,op      |
+|        | GET|HEAD                       | course/create                                         | course.create        | App\Http\Controllers\CoursesController@create              | auth,email,op      |
+|        | POST                           | course                                                | course.store         | App\Http\Controllers\CoursesController@store               | auth,email,op      |
+|        | GET|HEAD                       | course/{course}                                       | course.show          | App\Http\Controllers\CoursesController@show                | auth,email,op      |
+|        | GET|HEAD                       | course/{course}/edit                                  | course.edit          | App\Http\Controllers\CoursesController@edit                | auth,email,op      |
+|        | PUT                            | course/{course}                                       | course.update        | App\Http\Controllers\CoursesController@update              | auth,email,op      |
+|        | PATCH                          | course/{course}                                       |                      | App\Http\Controllers\CoursesController@update              | auth,email,op      |
+|        | DELETE                         | course/{course}                                       | course.destroy       | App\Http\Controllers\CoursesController@destroy             | auth,email,op      |
+|        | GET|HEAD                       | rombel                                                | rombel.index         | App\Http\Controllers\RombelController@index                | auth,email,op      |
+|        | GET|HEAD                       | rombel/create                                         | rombel.create        | App\Http\Controllers\RombelController@create               | auth,email,op      |
+|        | POST                           | rombel                                                | rombel.store         | App\Http\Controllers\RombelController@store                | auth,email,op      |
+|        | GET|HEAD                       | rombel/{rombel}                                       | rombel.show          | App\Http\Controllers\RombelController@show                 | auth,email,op      |
+|        | GET|HEAD                       | rombel/{rombel}/edit                                  | rombel.edit          | App\Http\Controllers\RombelController@edit                 | auth,email,op      |
+|        | PUT                            | rombel/{rombel}                                       | rombel.update        | App\Http\Controllers\RombelController@update               | auth,email,op      |
+|        | PATCH                          | rombel/{rombel}                                       |                      | App\Http\Controllers\RombelController@update               | auth,email,op      |
+|        | DELETE                         | rombel/{rombel}                                       | rombel.destroy       | App\Http\Controllers\RombelController@destroy              | auth,email,op      |
+|        | GET|HEAD                       | kepala                                                | kepala.index         | App\Http\Controllers\KepalaController@index                | auth,email,kepala  |
+|        | GET|HEAD                       | kepala/data-guru                                      | kepala.teacher       | App\Http\Controllers\KepalaController@teacher              | auth,email,kepala  |
+|        | GET|HEAD                       | kepala/data-peserta-didik                             | kepala.student       | App\Http\Controllers\KepalaController@student              | auth,email,kepala  |
+|        | GET|HEAD                       | kepala/data-kelas                                     | kepala.kelas         | App\Http\Controllers\KepalaController@kelas                | auth,email,kepala  |
+|        | GET|HEAD                       | kepala/data-mata-pelajaran                            | kepala.course        | App\Http\Controllers\KepalaController@course               | auth,email,kepala  |
+|        | GET|HEAD                       | teacher                                               | teacher.index        | App\Http\Controllers\TeacherController@index               | auth,email,teacher |
+|        | GET|HEAD                       | teacher/{teacher}                                     | teacher.show         | App\Http\Controllers\TeacherController@show                | auth,email,teacher |
+|        | GET|HEAD                       | akademik                                              | teacher.akademik     | App\Http\Controllers\TeacherController@akademik            | auth,email,teacher |
+|        | GET|HEAD                       | walikelas                                             | teacher.walas        | App\Http\Controllers\TeacherController@walas               | auth,email,teacher |
+|        | GET|HEAD                       | walikelas/{rombel_id}/edit/student/{student_id}       | teacher.walas.edit   | App\Http\Controllers\TeacherController@walasEdit           | auth,email,teacher |
+|        | PATCH                          | walikelas/{rombel_id}/edit/student/{student_id}       | teacher.walas.update | App\Http\Controllers\TeacherController@walasUpdate         | auth,email,teacher |
+|        | GET|HEAD                       | walikelas/legger/{id}                                 | teacher.walas.legger | App\Http\Controllers\TeacherController@walasLegger         | auth,email,teacher |
+|        | GET|HEAD                       | akademik/section/{section}                            | teacher.section      | App\Http\Controllers\TeacherController@section             | auth,email,teacher |
+|        | GET|HEAD                       | akademik/student/{student}/{section}                  | teacher.rapor        | App\Http\Controllers\TeacherController@rapor               | auth,email,teacher |
+|        | PATCH                          | akademik/student/{student}/{section}                  | rapor.update         | App\Http\Controllers\TeacherController@raporUpdate         | auth,email,teacher |
+|        | GET|HEAD                       | print/leger/{id}                                      | print.legger         | App\Http\Controllers\TeacherController@leggerPrint         | auth,email,teacher |
+|        | GET|HEAD                       | student                                               | student.index        | App\Http\Controllers\StudentController@index               | auth,email,student |
+|        | GET|HEAD                       | student/course                                        | student.course       | App\Http\Controllers\StudentController@course              | auth,email,student |
+|        | GET|HEAD                       | student/rapor                                         | student.rapor        | App\Http\Controllers\StudentController@rapor               | auth,email,student |
+|        | GET|HEAD                       | student/historis                                      | student.historis     | App\Http\Controllers\StudentController@historis            | auth,email,student |
+|        | GET|HEAD                       | print/rapor                                           | print.rapor          | App\Http\Controllers\StudentController@printRapor          | auth,email,student |
++--------+--------------------------------+-------------------------------------------------------+----------------------+------------------------------------------------------------+--------------------+
+
+Process finished with exit code 0 at 20:42:38.
+Execution time: 6,568 ms.

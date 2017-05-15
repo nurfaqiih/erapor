@@ -1,0 +1,5 @@
+<span class="fa fa-calendar-o pull-right"> 
+    <span class="hidden-xs hidden-sm"><?php echo e(\Carbon\Carbon::now(new DateTimeZone('Asia/Jakarta'))->format('D, d/M/Y')); ?> |</span>
+    Tahun Ajar : <?php echo e(Config::get('kalender.year')); ?> Semester : <?php echo e(Config::get('kalender.semester')); ?>
+
+</span>

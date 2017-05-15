@@ -1,0 +1,36 @@
+<?php $__env->startSection('content'); ?>
+    <?php echo $__env->make('flash::message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <div class="full">
+        <div class="page-inner">
+            <?php /*Cover Page*/ ?>
+            <div class="profile-cover">
+                <div class="row">
+                    <div class="col-md-3 profile-image">
+                        <div class="profile-image-container">
+                            <img src="<?php echo e($user->thumbnail); ?>" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-12 profile-info">
+                        <div class=" profile-info-value">
+                            <h3>SMA Negeri 7 Padang</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="main-wrapper">
+                <div class="row">
+                    <div class="col-md-3 user-profile">
+                        <h3 class="text-center"><?php echo e($name); ?></h3>
+                        <hr>
+                    </div>
+                    <div class="col-md-6">
+                        <?php echo $__env->make('flash::message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                        <?php echo $__env->make('user.profiles.'.Auth::user()->role, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

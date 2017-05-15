@@ -1,0 +1,22 @@
+{
+  "name": "e-rapor",
+  "dependencies": {
+    "font-awesome": "~4.3.0",
+    "Chart.js": "~1.0.2"
+  },
+  "version": "1.0.0",
+  "authors": [
+    "Satria Sahputra",
+    "satria.unp@gmail.com"
+  ],
+  "description": "Rapor Kurkulum 2013",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "resources/assets/vendor",
+    "test",
+    "tests"
+  ]
+}

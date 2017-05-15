@@ -1,0 +1,43 @@
+<?php $__env->startSection('content'); ?>
+<main class="page-content">
+    <div class="page-inner">
+        <div id="main-wrapper">
+            <div class="row">
+                    <div class="login-box col-md-4 col-sm-8 col-xs-8 col-md-push-4 col-sm-push-2 col-xs-push-2">
+                        <a href="/" class="logo-name text-lg text-center">E-RAPOR</a>
+                        <p class="text-center m-t-md">Please login into your account.</p>
+                        <?php echo $__env->make('partials.error', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                        <?php echo Form::open(['url' => '/auth/login', 'class' => 'm-t-md']); ?>
+
+                            <div class="form-group">
+                                <?php echo Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Username', 'required', 'autofocus']); ?>
+
+                            </div>
+                            <div class="form-group">
+                                <?php echo Form::password('password', ['class' => 'form-control pwd', 'required', 'placeholder' => 'Password']); ?>
+
+                            </div>
+                        <?php echo Form::submit('Login', ['class' => 'btn btn-block btn-primary']); ?>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="remember"> Remember Me
+                            </label>
+                        </div>
+                        <div class="text-center">
+                            <a href="#" data-target="#pwdModal" data-toggle="modal">Forgot your password?</a>
+                        </div>                            
+                        <?php echo Form::close(); ?>
+
+                        <p class="text-center m-t-xs text-sm">2015 &copy; ERAPOR KURIKULUM 2013</p>
+                    </div>
+            </div><!-- Row -->
+        </div><!-- Main Wrapper -->
+    </div><!-- Page Inner -->
+</main><!-- Page Content -->
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('footer'); ?>
+    <?php echo $__env->make('auth.password', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
